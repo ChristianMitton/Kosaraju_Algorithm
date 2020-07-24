@@ -92,8 +92,6 @@ j.children.append(k)
 
 graph = [a,b,c,d,e,f,g,h,i,j,k]
 
-
-
 # for i in graph:    
 #     print(i.name, ' >> ', end='')    
 #     for i in i.children:
