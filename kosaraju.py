@@ -1,13 +1,13 @@
-# finds strongly connected components
+# finds strongly connected components in directed graph
 
 # 2 pass algorithm
 
-# do dfs on graph, then order the vertices by finishing time in decreasing order (node that finished last is at top of the stack)
-
-#     need dic to keep track of visited  
-#     need stack to order vertices by finish time
-
-# treat the following as pseudo code
+# do dfs on graph until all nodes are explored
+# store finish times of each node in stack
+# reverse the graph 
+# pop off each node in stack and do dfs on these nodes using newly reversed graph
+    # obtain strongly connected component after each dfs
+# return list of strongly connected components
 
 class GraphNode:
     def __init__(self, name):
@@ -32,13 +32,13 @@ def kosaraju(graph):
     for i in range(len(nodesSortedByFinishTime)):
         node = nodesSortedByFinishTime.pop(-1)
         stronglyConnectedComponent = []
-        getStronglyConnectedComponents(node, visited, stronglyConnectedComponent)
+        getStronglyConnectedComponentsAtNode(node, visited, stronglyConnectedComponent)
         stronglyConnectedComponents.append(stronglyConnectedComponent)
 
     return stronglyConnectedComponents
 
 
-def getStronglyConnectedComponents(node, visited, stronglyConnectedComponent):
+def getStronglyConnectedComponentsAtNode(node, visited, stronglyConnectedComponent):
     if root not in visited:
         visited[root] = True
     else:
@@ -60,7 +60,7 @@ def getFinishTimes(root, visited, stack):
 
     stack.append(root)
 
-def reverseGraph(root, graphNodes):       
+def reverseGraph(graphNodes):       
         pass
 
 
@@ -99,8 +99,6 @@ graph = [a,b,c,d,e,f,g,h,i,j,k]
 #     print()
 
 
-
-
-
-
-
+# time: o(v + e)
+# space: o(v), 
+#   where v is total vertices, and e total edges
