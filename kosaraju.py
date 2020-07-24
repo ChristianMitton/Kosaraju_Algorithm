@@ -2,12 +2,12 @@
 
 # 2 pass algorithm
 
-# do dfs on graph until all nodes are explored
-# store finish times of each node in stack
-# reverse the graph 
-# pop off each node in stack and do dfs on these nodes using newly reversed graph
+# 1.) do dfs on graph until all nodes are explored
+# 2.) store finish times of each node in stack
+# 3.) reverse the graph 
+# 4.) pop off each node in stack and do dfs on these nodes using newly reversed graph
     # obtain strongly connected component after each dfs
-# return list of strongly connected components
+# 5.) return list of strongly connected components
 
 class GraphNode:
     def __init__(self, name):
